@@ -1,0 +1,9 @@
+bin/Debug/**
+bin/Release/**
+obj/Debug/**
+obj/Release/**
+
+Makefile
+*.make
+*lite_project*
+MarkdownPP.sublime-workspace

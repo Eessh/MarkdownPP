@@ -1,0 +1,58 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": []
+		}
+	],
+	"settings": {
+		"tab_size": 2,
+		"font_face": "Fantasque Sans Mono",
+		"font_size": 13,
+		"caret_extra_top": 3,
+		"caret_extra_bottom": 5,
+		"caret_extra_width": 1,
+	},
+	"build_systems": [
+		{
+			"name": "Project Build System",
+			"working_dir": "$folder",
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"variants": [
+				{
+					"name": "⚙️ Generate Makefiles using Premake5",
+					"shell_cmd": "premake5.exe --cc=mingw gmake2"
+				},
+				{
+					"name": "📄 Header: 🔨 Build: 🪲 Debug",
+					"shell_cmd": "start Runner.bat mingw32-make config=debug MarkdownParser__Header"
+				},
+				{
+					"name": "📄 Header: 🔨 Build: 🚀 Release",
+					"shell_cmd": "start Runner.bat mingw32-make config=release MarkdownParser__Header"
+				},
+				{
+					"name": "📄 Header: ▶️ Run: 🪲 Debug",
+					"shell_cmd": "start Runner.bat .\\bin\\Debug\\MarkdownParser__Header.exe"
+				},
+				{
+					"name": "📄 Header: ▶️ Run: 🚀 Release",
+					"shell_cmd": "start Runner.bat .\\bin\\Release\\MarkdownParser__Header.exe"
+				},
+				{
+					"name": "🛠️ Build TestBuilder",
+					"shell_cmd": "start TestBuilder.bat"
+				},
+				{
+					"name": "✅ Test",
+					"shell_cmd": "start Test.bat"
+				},
+				{
+					"name": "🧹Clean",
+					"shell_cmd": "Clean.bat"
+				}
+			],
+		}
+	]
+}
