@@ -74,3 +74,6 @@ Header only library for parsing markdown to Abstract Syntax Tree (AST).
       $ rm Makefile
       $ rm ./tests/MarkdownParser__TestsBuilder
       ```
+
+### Credits
+Thanks to [Aaron Fu Lei](https://github.com/aafulei) for his [color-console](https://github.com/aafulei/color-console). It helped me move from printing boring white to colorful Test Logs.
