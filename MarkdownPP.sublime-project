@@ -22,35 +22,99 @@
 			"variants": [
 				{
 					"name": "⚙️ Generate Makefiles using Premake5",
-					"shell_cmd": "premake5.exe --cc=mingw gmake2"
+					"windows": {
+						"shell_cmd": ".\\scripts\\windows\\gen_makefiles.bat"
+					},
+					"osx": {
+						"shell_cmd": "premake5 --cc=gcc gmake2"
+					},
+					"linux": {
+						"shell_cmd": "premake5 --cc=gcc gmake2"
+					}
 				},
 				{
 					"name": "📄 Header: 🔨 Build: 🪲 Debug",
-					"shell_cmd": "start Runner.bat mingw32-make config=debug MarkdownParser__Header"
+					"windows": {
+						"shell_cmd": "start .\\scripts\\windows\\build_debug.bat"
+					},
+					"osx": {
+						"shell_cmd": "make config=debug"
+					},
+					"linux": {
+						"shell_cmd": "make config=debug"
+					}
 				},
 				{
 					"name": "📄 Header: 🔨 Build: 🚀 Release",
-					"shell_cmd": "start Runner.bat mingw32-make config=release MarkdownParser__Header"
+					"windows": {
+						"shell_cmd": "start .\\scripts\\windows\\build_release.bat"
+					},
+					"osx": {
+						"shell_cmd": "make config=release"
+					},
+					"linux": {
+						"shell_cmd": "make config=release"
+					}
 				},
 				{
 					"name": "📄 Header: ▶️ Run: 🪲 Debug",
-					"shell_cmd": "start Runner.bat .\\bin\\Debug\\MarkdownParser__Header.exe"
+					"windows": {
+						"shell_cmd": "start .\\scripts\\windows\\run_debug.bat"
+					},
+					"osx": {
+						"shell_cmd": "./bin/Debug/MarkdownParser__Header"
+					},
+					"linux": {
+						"shell_cmd": "./bin/Debug/MarkdownParser__Header"
+					}
 				},
 				{
 					"name": "📄 Header: ▶️ Run: 🚀 Release",
-					"shell_cmd": "start Runner.bat .\\bin\\Release\\MarkdownParser__Header.exe"
+					"windows": {
+						"shell_cmd": "start .\\scripts\\windows\\run_release.bat"
+					},
+					"osx": {
+						"shell_cmd": "./bin/Release/MarkdownParser__Header"
+					},
+					"linux": {
+						"shell_cmd": "./bin/Release/MarkdownParser__Header"
+					}
 				},
 				{
 					"name": "🛠️ Build TestBuilder",
-					"shell_cmd": "start TestBuilder.bat"
+					"windows": {
+						"shell_cmd": "start .\\scripts\\windows\\build_testbuilder.bat"
+					},
+					"osx": {
+						"shell_cmd": "./scripts/macos/build_testbuilder.sh"
+					},
+					"linux": {
+						"shell_cmd": "./scripts/linux/build_testbuilder.sh"
+					},
 				},
 				{
 					"name": "✅ Test",
-					"shell_cmd": "start Test.bat"
+					"windows": {
+						"shell_cmd": "start .\\scripts\\windows\\run_tests.bat"
+					},
+					"osx": {
+						"shell_cmd": "./scripts/macos/run_tests.sh"
+					},
+					"linux": {
+						"shell_cmd": "./scripts/linux/run_tests.sh"
+					}
 				},
 				{
 					"name": "🧹Clean",
-					"shell_cmd": "Clean.bat"
+					"windows": {
+						"shell_cmd": ".\\scripts\\windows\\clean.bat"
+					},
+					"osx": {
+						"shell_cmd": "./scripts/macos/clean.sh"
+					},
+					"linux": {
+						"shell_cmd": "./scripts/linux/clean.sh"
+					}
 				}
 			],
 		}
