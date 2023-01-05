@@ -7,3 +7,5 @@ Makefile
 *.make
 *lite_project*
 MarkdownPP.sublime-workspace
+
+tests/*.exe

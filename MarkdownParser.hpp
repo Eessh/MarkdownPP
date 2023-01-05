@@ -36,6 +36,8 @@ namespace MarkdownParser {
 		NEWLINE
   };
 
+  std::string tokenTypeToStr(const TokenType& type);
+
 };
 
 /**
@@ -401,6 +403,32 @@ namespace MarkdownParser {
  * */
 
 /**
+ * TokenType Implementations
+ * 
+ * */
+std::string MarkdownParser::tokenTypeToStr(const MarkdownParser::TokenType& type) {
+  switch (type) {
+  case MarkdownParser::TokenType::ROOT: return "ROOT";
+  case MarkdownParser::TokenType::HEADING: return "HEADING";
+  case MarkdownParser::TokenType::BOLD: return "BOLD";
+  case MarkdownParser::TokenType::ITALIC: return "ITALIC";
+  case MarkdownParser::TokenType::BOLD_ITALIC: return "BOLD_ITALIC";
+  case MarkdownParser::TokenType::STRIKETHROUGH: return "STRIKETHROUGH";
+  case MarkdownParser::TokenType::INLINE_CODE: return "INLINE_CODE";
+  case MarkdownParser::TokenType::MULTILINE_CODE: return "MULTILINE_CODE";
+  case MarkdownParser::TokenType::QUOTE: return "QUOTE";
+  case MarkdownParser::TokenType::LINK: return "LINK";
+  case MarkdownParser::TokenType::IMAGE: return "IMAGE";
+  case MarkdownParser::TokenType::ORDERED_LIST: return "ORDERED_LIST";
+  case MarkdownParser::TokenType::UNORDERED_LIST: return "UNORDERED_LIST";
+  case MarkdownParser::TokenType::TEXT: return "TEXT";
+  case MarkdownParser::TokenType::TAB: return "TAB";
+  default: break;
+  }
+  return "NEWLINE";
+}
+
+/**
  * Token Implementations
  * 
  * */
@@ -439,7 +467,7 @@ std::string MarkdownParser::HeadingToken::render() const {
   s.push_back(levelChar);
   s.push_back('>');
   s.append(mText);
-  s.append("<h");
+  s.append("</h");
   s.push_back(levelChar);
   s.push_back('>');
   return s;
