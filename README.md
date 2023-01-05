@@ -1,5 +1,5 @@
 # MarkdownPP
-Header only library for parsing markdown to Abstract Syntax Tree (AST).
+[Header](https://github.com/Eessh/MarkdownPP/blob/master/MarkdownParser.hpp) only library for parsing markdown to Abstract Syntax Tree (AST).
 
 
 ### Build
