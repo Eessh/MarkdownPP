@@ -9,3 +9,4 @@ Makefile
 MarkdownPP.sublime-workspace
 
 tests/*.exe
+tests/main.cpp
