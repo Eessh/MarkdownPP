@@ -89,4 +89,4 @@
 
 
 ### Credits
-Thanks to [Aaron Fu Lei](https://github.com/aafulei) for his [color-console](https://github.com/aafulei/color-console). It helped me move from printing boring white to colorful Test Logs.
+Thanks to [Ihor Kalnytskyi](https://github.com/ikalnytskyi) for his [termcolor](https://github.com/ikalnytskyi/termcolor). It helped me move from printing boring white to colorful Test Logs. Btw, its also cross-platform ✨
