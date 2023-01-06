@@ -9,43 +9,23 @@ void Heading2() {
 	std::string md = "## Hola";
 	std::vector<MarkdownParser::Token*> v = lexer.parseMarkdownStrToTokens(md);
 
-	MarkdownParser::HeadingToken* t = nullptr;
+	Utils::Test test("Heading2", "Checking lexer for parsing level-2 heading token: \"## Hola\"");
 
+	MarkdownParser::HeadingToken* t = nullptr;
 	t = dynamic_cast<MarkdownParser::HeadingToken*>(v[0]);
 	if (!t) {
-		Utils__logFailedTest("Heading2", {"Unable to dynamic_cast Token* to HeadingToken*"});
+		test.addError(new Utils::RuntimeError("Unable to dynamic_cast Token* to HeadingToken*"));
 		return;
 	}
 
-	bool allOk = true;
-	std::vector<std::string> errorDesc;
-	if (t->type() != MarkdownParser::TokenType::HEADING) {
-		errorDesc.push_back("Type not equal:");
-		errorDesc.push_back("  Expected: HEADING");
-		errorDesc.push_back("  Recieved: " + MarkdownParser::tokenTypeToStr(t->type()));
-		allOk = false;
-	}
-	if (t->level() != 2) {
-		errorDesc.push_back("Level not equal:");
-		errorDesc.push_back("  Expected: 2");
-		errorDesc.push_back("  Recieved: " + t->level());
-		allOk = false;
-	}
-	if (t->text() != "Hola") {
-		errorDesc.push_back("Text not equal:");
-		errorDesc.push_back("  Expected: Hola");
-		errorDesc.push_back("  Recieved: " + t->text());
-		allOk = false;
-	}
-	if (t->render() != "<h2>Hola</h2>") {
-		errorDesc.push_back("Rendered output not equal:");
-		errorDesc.push_back("  Expected: <h2>Hola</h2>");
-		errorDesc.push_back("  Recieved: " + t->render());
-		allOk = false;
-	}
-	if (allOk)
-		Utils__logPassedTest("Heading2");
-	else
-		Utils__logFailedTest("Heading2", errorDesc);
-	std::cout << "\n";
+	if (t->type() != MarkdownParser::TokenType::HEADING)
+		test.addError(new Utils::ValueError("type", "HEADING", MarkdownParser::tokenTypeToStr(t->type())));
+	if (t->level() != 2)
+		test.addError(new Utils::ValueError("level", "2", std::to_string(t->level())));
+	if (t->text() != "Hola")
+		test.addError(new Utils::ValueError("text", "Hola", t->text()));
+	if (t->render() != "<h2>Hola</h2>")
+		test.addError(new Utils::ValueError("render", "<h2>Hola</h2>", t->render()));
+
+	test.log();
 }

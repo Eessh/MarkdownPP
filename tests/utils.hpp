@@ -168,7 +168,7 @@ void Utils::Test::log() const {
 
 void Utils::Test::logPassed() const {
 	std::cout << termcolor::on_bright_green << termcolor::bright_white << "Passed" << termcolor::reset << " " << this->mName << "\n";
-	std::cout << "Description: " << this->mDescription << "\n";
+	std::cout << "Description: " << this->mDescription << "\n\n";
 }
 
 void Utils::Test::logFailed() const {
@@ -189,21 +189,5 @@ void Utils::Test::logFailed() const {
 			std::cout << "  Returned Value: " << verror->value() << "\n";
 		}
 	}
-	std::cout << termcolor::reset;
-}
-
-void Utils__logPassedTest(const std::string& testName, const std::vector<std::string>& errorDesc = {}) {
-	std::cout << termcolor::on_bright_green << termcolor::bright_white << "Passed" << termcolor::reset << " " << testName << "\n";
-	if (errorDesc.empty())
-		return;
-	for (const std::string& desc: errorDesc)
-		std::cout << termcolor::yellow << desc << termcolor::reset << "\n";
-}
-
-void Utils__logFailedTest(const std::string& testName, const std::vector<std::string>& errorDesc = {}) {
-	std::cout << termcolor::on_bright_red << termcolor::bright_white << "Failed" << termcolor::reset << " " << testName << "\n";
-	if (errorDesc.empty())
-		return;
-	for (const std::string& desc: errorDesc)
-		std::cout << termcolor::red << desc << termcolor::reset << "\n";
+	std::cout << termcolor::reset << "\n";
 }
