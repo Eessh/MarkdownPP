@@ -48,38 +48,42 @@
     - Install [Premake5](https://premake.github.io/)
     - For Linux, use scripts in linux folder `./scripts/linux/`
     - For macOS, use scripts in macos folder `./scripts/macos/`
+    - These scripts should be made executable before running them.
+      ```bash
+      (project root dir) $ chmod +x ./scripts/(linux or macos)/*
+      ```
     - Generate Makefiles using Premake5
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/gen_makefiles.sh
       ```
     - Build Debug version
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/build_debug.sh
       ```
       This will place the executable in `./bin/Debug/`
     - Build Release version
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/build_release.sh
       ```
       This will place the executable in `./bin/Release/`
     - Build TestBuilder
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/build_testbuilder.sh
       ```
     - Run Debug Version
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/run_debug.sh
       ```
     - Run Release Verison
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/run_release.sh
       ```
     - Run Tests
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/run_tests.sh
       ```
     - Clean project
-      ```sh
+      ```bash
       (project root dir) $ ./scripts/(linux or macos)/clean.sh
       ```
 
