@@ -3,26 +3,24 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "./color.hpp"
+#include "../termcolor/termcolor.hpp"
 
 void Utils__printTestDescription(const std::string& testName, const std::string& testDesc) {
 	std::cout << "";
 }
 
 void Utils__logPassedTest(const std::string& testName, const std::vector<std::string>& errorDesc = {}) {
-	std::cout << dye::light_green("Passed").invert() << " " << testName << "\n";
+	std::cout << termcolor::on_bright_green << termcolor::bright_white << "Passed" << termcolor::reset << " " << testName << "\n";
 	if (errorDesc.empty())
 		return;
-	for (const std::string& desc: errorDesc) {
-		std::cout << dye::yellow(desc) << "\n";
-	}
+	for (const std::string& desc: errorDesc)
+		std::cout << termcolor::yellow << desc << termcolor::reset << "\n";
 }
 
 void Utils__logFailedTest(const std::string& testName, const std::vector<std::string>& errorDesc = {}) {
-	std::cout << dye::light_red("Failed").invert() << " " << testName << "\n";
+	std::cout << termcolor::on_bright_red << termcolor::bright_white << "Failed" << termcolor::reset << " " << testName << "\n";
 	if (errorDesc.empty())
 		return;
-	for (const std::string& desc: errorDesc) {
-		std::cout << dye::red(desc) << "\n";
-	}
+	for (const std::string& desc: errorDesc)
+		std::cout << termcolor::red << desc << termcolor::reset << "\n";
 }
