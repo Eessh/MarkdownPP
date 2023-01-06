@@ -1,79 +1,88 @@
 # MarkdownPP
 [Header](https://github.com/Eessh/MarkdownPP/blob/master/MarkdownParser.hpp) only library for parsing markdown to Abstract Syntax Tree (AST).
 
-
 ### Build
-- Windows
-  - Sublime Text
+- Sublime Text
+  - Install [Premake5](https://premake.github.io/)
+  - If you have Sublime Text installed, you could just open `MarkdownPP.sublime-project` with Sublime Text, and set Build System to `Project Build System`. The build and run commands can be accessed with shortcut `(Ctrl/Command)+Shift+b`.
   
-    If you have Sublime Text installed, you could just set Build System to `Project Build System`, then access the build commands with `Ctrl+Shift+B`
-    
     ![SublimeProjectBuildSystem](./screenshots/SublimeProjectBuildSystem.png)
-  - Command Line
+
+- Command Line
+  - Windows
     - Generate Makefiles using Premake5
       ```powershell
-      $ .\premake5.exe --cc=mingw gmake2
+      (project root dir) $ .\scripts\windows\gen_makefiles.bat
       ```
     - Build Debug version
       ```powershell
-      $ mingw32-make config=debug
+      (project root dir) $ .\scripts\windows\build_debug.bat
       ```
       This will place the executable in `.\bin\Debug\`
     - Build Release version
       ```powershell
-      $ mingw32-make config=release
+      (project root dir) $ .\scripts\windows\build_release.bat
       ```
       This will place the executable in `.\bin\Release\`
     - Build TestBuilder
       ```powershell
-      $ .\TestBuilder.bat
+      (project root dir) $ .\scripts\windows\build_testbuilder.bat
+      ```
+    - Run Debug Version
+      ```powershell
+      (project root dir) $ .\scripts\windows\run_debug.bat
+      ```
+    - Run Release Verison
+      ```powershell
+      (project root dir) $ .\scripts\windows\run_release.bat
       ```
     - Run Tests
       ```powershell
-      $ .\Test.bat
+      (project root dir) $ .\scripts\windows\run_tests.bat
       ```
     - Clean project
       ```powershell
-      $ .\Clean.bat
+      (project root dir) $ .\scripts\windows\clean.bat
       ```
-- Unix (macOS & Linux)
-  - Install [Premake5](https://premake.github.io/)
-  - Sublime Text
-    - Working on the build system to make it cross platform.
-  - Command Line
+  - Unix (Linux & macOS)
+    - Install [Premake5](https://premake.github.io/)
+    - For Linux, use scripts in linux folder `./scripts/linux/`
+    - For macOS, use scripts in macos folder `./scripts/macos/`
     - Generate Makefiles using Premake5
-      ```bash
-      $ ./premake5 --cc=gcc gmake2
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/gen_makefiles.sh
       ```
     - Build Debug version
-      ```bash
-      $ make config=debug
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/build_debug.sh
       ```
       This will place the executable in `./bin/Debug/`
     - Build Release version
-      ```bash
-      $ make config=release
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/build_release.sh
       ```
       This will place the executable in `./bin/Release/`
     - Build TestBuilder
-      ```bash
-      $ cd ./tests/
-      $ g++ --std=c++20 -O3 ./TestBuilder.cpp -o ./MarkdownParser__TestsBuilder
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/build_testbuilder.sh
+      ```
+    - Run Debug Version
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/run_debug.sh
+      ```
+    - Run Release Verison
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/run_release.sh
       ```
     - Run Tests
-      ```bash
-      $ ./MarkdownParser__TestsBuilder ./tests/ ./main.cpp
-      $ g++ --std=c++20 -O3 ./main.cpp -o ./../bin/Debug/MarkdownParser__Tester
-      $ ./../bin/Debug/MarkdownParser__Tester
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/run_tests.sh
       ```
     - Clean project
-      ```bash
-      $ rm -rf ./bin
-      $ rm -rf ./obj
-      $ rm *.make
-      $ rm Makefile
-      $ rm ./tests/MarkdownParser__TestsBuilder
+      ```sh
+      (project root dir) $ ./scripts/(linux or macos)/clean.sh
       ```
+
 
 ### Credits
 Thanks to [Aaron Fu Lei](https://github.com/aafulei) for his [color-console](https://github.com/aafulei/color-console). It helped me move from printing boring white to colorful Test Logs.
