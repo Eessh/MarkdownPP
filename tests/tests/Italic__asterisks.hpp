@@ -9,7 +9,7 @@ void Italic__asterisks() {
 	const std::string md = "*Hola*";
 	std::vector<MarkdownParser::Token*> v = lexer.parseMarkdownStrToTokens(md);
 
-	Utils::Test test("Italic styling with asterisks", "Checking parser for italic styling using asterisks: *Hola*");
+	Utils::Test test("Italic styling with asterisks", "Checking lexer for italic styling using asterisks: *Hola*");
 
 	MarkdownParser::ItalicToken* t = dynamic_cast<MarkdownParser::ItalicToken*>(v[0]);
 	if (!t) {

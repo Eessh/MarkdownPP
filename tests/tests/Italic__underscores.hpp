@@ -9,7 +9,7 @@ void Italic__underscores() {
 	const std::string md = "_Hola_";
 	std::vector<MarkdownParser::Token*> v = lexer.parseMarkdownStrToTokens(md);
 
-	Utils::Test test("Italic styling with underscores", "Checking parser for italic styling using underscores: _Hola_");
+	Utils::Test test("Italic styling with underscores", "Checking lexer for italic styling using underscores: _Hola_");
 
 	MarkdownParser::ItalicToken* t = dynamic_cast<MarkdownParser::ItalicToken*>(v[0]);
 	if (!t) {

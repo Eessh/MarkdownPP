@@ -9,7 +9,7 @@ void Italic__asterisks_with_multiple_words() {
 	const std::string md = "*Hola, I'm Eessh*";
 	std::vector<MarkdownParser::Token*> v = lexer.parseMarkdownStrToTokens(md);
 
-	Utils::Test test("Italic styling with asterisks, with multiple words", "Checking parser for italic styling using asterisks, with multiple words: *Hola, I'm Eessh*");
+	Utils::Test test("Italic styling with asterisks, with multiple words", "Checking lexer for italic styling using asterisks, with multiple words: *Hola, I'm Eessh*");
 
 	MarkdownParser::ItalicToken* t = dynamic_cast<MarkdownParser::ItalicToken*>(v[0]);
 	if (!t) {

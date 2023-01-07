@@ -9,7 +9,7 @@ void Italic__underscores_with_multiple_words() {
 	const std::string md = "_Hola, I'm Eessh_";
 	std::vector<MarkdownParser::Token*> v = lexer.parseMarkdownStrToTokens(md);
 
-	Utils::Test test("Italic styling with underscores, with multiple words", "Checking parser for italic styling using underscores, with multiple words: _Hola, I'm Eessh_");
+	Utils::Test test("Italic styling with underscores, with multiple words", "Checking lexer for italic styling using underscores, with multiple words: _Hola, I'm Eessh_");
 
 	MarkdownParser::ItalicToken* t = dynamic_cast<MarkdownParser::ItalicToken*>(v[0]);
 	if (!t) {
