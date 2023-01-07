@@ -15,6 +15,7 @@ void Heading6() {
 	t = dynamic_cast<MarkdownParser::HeadingToken*>(v[0]);
 	if (!t) {
 		test.addError(new Utils::RuntimeError("Unable to dynamic_cast Token* to HeadingToken*"));
+		test.log();
 		return;
 	}
 
