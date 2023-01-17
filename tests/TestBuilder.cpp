@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <filesystem>
+#include "../termcolor/termcolor.hpp"
 
 void printTestBuilderDesc() {
 	std::cout << "TestBuilder Usage:\n";
@@ -36,8 +37,10 @@ int main(int argc, char** argv) {
 	}
 
 	for (const std::string& file: fileNames) {
-		std::cout << "Found: " << file << "\n";
+		std::cout << "Found Test: " << termcolor::bright_yellow << file << termcolor::reset << "\n";
 	}
+
+	std::cout << "Found " << termcolor::bright_green << fileNames.size() << termcolor::reset << " Tests.\n";
 
 	if (outputCodeFile.is_open()) {
 		outputCodeFile << "\nint main() {\n\tstd::cout << \"\\n\";\n";
